@@ -9,12 +9,12 @@ for(const product of cart){
     total = total + product.price;
 }
 
-const shipping = 100; 
-const tax = (total + shipping) +5;
+const shipping = total > 0 ? 15:0;
+const tax = (total + shipping) * 0.10;
 const grandTotal = total + shipping + tax;
 
     return (
-        <div>
+        <div className="bg" >
              <h3>Order Summary</h3>
             <h5>Items Ordered: {props.cart.length} </h5>
             <br/>
