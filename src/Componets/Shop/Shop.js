@@ -73,7 +73,10 @@ const Shop = () => {
            <Cart cart={cart}></Cart>
         </div>
     </div>
+    <h2 className="fotter-clr">© copyright 2021 www.Giftcards.com.bd . Developed By GreenViewSoft</h2>
         </>
+
+
     );
 };
 
