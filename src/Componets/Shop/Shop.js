@@ -8,6 +8,7 @@ import './Shop.css';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    // creator is Mahabubshasan
     const [displayProducts, setDisplayProducts] = useState([]);
     useEffect( () =>  {
         console.log('prodct ApI called');

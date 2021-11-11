@@ -3,7 +3,7 @@ import Product from '../Product/Product';
 import './Cart.css'
 
 const Cart = (props) => {
-const {cart} = props;
+const { cart } = props;
 let total = 0;
 for(const product of cart){
     total = total + product.price;
