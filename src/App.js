@@ -7,14 +7,17 @@ import Inventory from './Componets/Inventory/Inventory';
 import OrderReview from './Componets/OrderReview/OrderReview';
 import  NotFound  from './Componets/NotFound/NotFound';
 import Home from './Componets/Home/Home';
+import { Placeholder } from 'react-bootstrap';
+import PlaceOrder from './Componets/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
     
 
     <div>
-<Header></Header>
+      
 <Router>
+<Header></Header>
     <Switch>
       <Route exact path="/" >
         <Home></Home>
@@ -33,6 +36,11 @@ function App() {
        <Route path="/inventory">
       <Inventory></Inventory>
        </Route>
+
+<Route path="/PlaceOrder">
+  <PlaceOrder></PlaceOrder>
+</Route>
+
        <Route path="*">
       <NotFound></NotFound>
        </Route>
