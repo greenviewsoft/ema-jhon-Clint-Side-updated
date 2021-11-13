@@ -81,7 +81,7 @@ const Shop = () => {
             }
         </div>
         <div className="cart-container">
-        <h1>hello  Shop</h1>
+        <h1>Shop</h1>
            <Cart cart={cart}>
            
            </Cart>
@@ -90,7 +90,7 @@ const Shop = () => {
         </Link>
         </div>
     </div>
-    <h2 className="fotter-clr">© copyright 2021 www.Giftcards.com.bd . Developed By GreenViewSoft</h2>
+    <h2 className="fotter-clr">© copyright 2021 www.amazone.com . Developed By Mahabub Hasan</h2>
         </>
     );
 };
