@@ -10,7 +10,7 @@ import { useHistory } from 'react-router';
 
 const OrderReview = () => {
     const [products] = useProducts();
-    const [cart, setCart] =  useCart(products);
+    const [cart, setCart] = useCart(products);
     const history = useHistory();
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
@@ -19,7 +19,7 @@ const OrderReview = () => {
     }
 
 
-    const handlePlaceOrder = () =>{
+    const handlePlaceOrder = () => {
         // history.push('/PlaceOrder');
         setCart([]);
         clearTheCart();
@@ -29,11 +29,11 @@ const OrderReview = () => {
             <div className="shop-container" >
                 <div className="product-container" >
                     {
-                        cart.map(product=><ReviewItem 
+                        cart.map(product => <ReviewItem
                             key={product.key}
                             product={product}
                             handleRemove={handleRemove}
-                            ></ReviewItem>)
+                        ></ReviewItem>)
                     }
                 </div>
                 <div className="cart-container" >
@@ -44,8 +44,8 @@ const OrderReview = () => {
 
                     </Cart>
                     <Link to="/PlaceOrder">
-        <button onClick={handlePlaceOrder} className="purchase-btn">Place Order </button>
-        </Link>
+                        <button onClick={handlePlaceOrder} className="purchase-btn">Place Order </button>
+                    </Link>
                 </div>
             </div>
         </div>

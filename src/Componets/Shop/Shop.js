@@ -4,11 +4,12 @@ import Product from '../Product/Product';
 import {addToDb, getStoredCart} from '../../utilities/fakedb'
 import './Shop.css';
 import { Link } from 'react-router-dom';
+import useCart from '../hooks/useCart';
 
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useCart(products);
     // creator is Mahabubshasan
     const [displayProducts, setDisplayProducts] = useState([]);
     useEffect( () =>  {
@@ -30,17 +31,15 @@ const Shop = () => {
             const addedProduct = products.find(product => product.key
             === key);
 
-          
             storedCart.push(addedProduct);
         }
         setCart(storedCart);
         }
     }, [products])
-
     const handleAddToCart = (product) => {
        const exists = cart.find(pd => pd.key === product.key);
        let newCart = [];
-       if (exists){
+       if (exists) {
            const rest = cart.filter(pd => pd.key !== product.key);
            exists.quantity = exists.quantity + 1;
            newCart = [...rest, product];
@@ -62,7 +61,6 @@ const Shop = () => {
         const matchedProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
         setDisplayProducts(matchedProducts);
     }
-    
     return (
         <>
             <div className="search-container" >
@@ -85,17 +83,15 @@ const Shop = () => {
         <div className="cart-container">
         <h1>hello  Shop</h1>
            <Cart cart={cart}>
-             
+           
            </Cart>
-        <Link to="/review">
+           <Link to="/review">
         <button className="purchase-btn">Order Your Review</button>
         </Link>
         </div>
     </div>
     <h2 className="fotter-clr">© copyright 2021 www.Giftcards.com.bd . Developed By GreenViewSoft</h2>
         </>
-
-
     );
 };
 
