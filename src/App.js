@@ -8,38 +8,62 @@ import OrderReview from './Componets/OrderReview/OrderReview';
 import NotFound from './Componets/NotFound/NotFound';
 import Home from './Componets/Home/Home';
 import PlaceOrder from './Componets/PlaceOrder/PlaceOrder';
+import Login from './Componets/Login/Login';
+import Register from './Componets/Register/Register';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './Componets/PrivateRoute/PrivateRoute';
+import Shipping from './Componets/Shipping/Shipping';
+import Orders from './Componets/Orders/Orders';
 
 function App() {
   return (
 
 
     <div>
+<AuthProvider>
 
-      <Router>
+<Router>
         <Header></Header>
         <Switch>
+          <Route exact path="/home" >
+            <Home></Home>
+          </Route>
           <Route exact path="/" >
             <Home></Home>
           </Route>
           <Route exact path="/shop">
             <Shop></Shop>
           </Route>
-          <Route path="/shop">
-            <Shop></Shop>
-          </Route>
+          
 
           <Route path="/review">
             <OrderReview></OrderReview>
           </Route>
 
-          <Route path="/inventory">
+          <PrivateRoute path="/inventory">
             <Inventory></Inventory>
-          </Route>
+          </PrivateRoute>
 
-          <Route exact path="/PlaceOrder">
+          <PrivateRoute path="/shipping" >
+            <Shipping></Shipping>
+          </PrivateRoute>
+
+          <PrivateRoute path="/PlaceOrder">
             <PlaceOrder></PlaceOrder>
-          </Route>
+          </PrivateRoute>
 
+
+          <PrivateRoute path="/orders">
+            <Orders></Orders> 
+          </PrivateRoute>
+
+          <Route path="/login" >
+            <Login></Login>
+           
+          </Route>
+          <Route path="/register">
+          <Register></Register>
+          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
@@ -47,6 +71,8 @@ function App() {
         </Switch>
       </Router>
 
+</AuthProvider>
+     
     </div>
   );
 }

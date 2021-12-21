@@ -21,3 +21,16 @@
     color: rgb(231, 229, 227);
     background-color: darkgreen;
 }
+
+.pagination{
+    margin: 30px
+}
+
+.pagination button{
+    padding: 0 10px;
+    margin-right: 20px;
+}
+.pagination .selected{
+    background-color: blue;
+    color:white;
+}
